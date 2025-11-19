@@ -7,6 +7,4 @@ public record Reservation(Long id,
                    Long roomId,
                    LocalDate startDate,
                    LocalDate endDate,
-                   ReservationStatus status) {
-
-}
+                   ReservationStatus status) {}

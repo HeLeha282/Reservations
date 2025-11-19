@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController//этот класс - обработчик http запросов => (в классе есть endpoints)
+@RestController
 @RequestMapping("api/reservations")
-public class ReservationController {
+public class  ReservationController {
 
     private static final Logger log = LoggerFactory.getLogger(ReservationController.class);
 
@@ -29,9 +29,6 @@ public class ReservationController {
         return ResponseEntity.ok(reservationService.getReservations());
     }
 
-    //@RequestParam Говорит что брать параметры из query параметров после ? в URL. Используется для опциональных параметров, фильтров, настроек.
-    //@PathVariable Говорит что брать параметры из пути запроса. Используется для обязательных параметров, которые являются частью пути.
-    //@RequestBody говорит что брать параметры из тела запроса. из json в объект при помощи фреймворка jackson делает.
     @GetMapping("/{id}")
     public ResponseEntity<Reservation> getReservationsById(@PathVariable("id") long id) {
         log.info("called method getReservationById: id={}", id);
