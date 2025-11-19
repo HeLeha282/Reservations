@@ -71,11 +71,11 @@ public class  ReservationController {
 
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Reservation> deleteReservation(@PathVariable Long id) {
+    @PatchMapping("/{id}/cancel")
+    public ResponseEntity<Reservation> cancelReservation(@PathVariable Long id) {
         log.info("called method deleteReservation: id={}", id);
         try {
-            reservationService.deleteReservation(id);
+            reservationService.cancelReservation(id);
             return ResponseEntity.ok().build();
         } catch (EntityNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();

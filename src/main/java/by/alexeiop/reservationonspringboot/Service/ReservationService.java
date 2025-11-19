@@ -121,7 +121,7 @@ public class ReservationService {
         return mapReservationEntityToDomainReservation(updatedReservation);
     }
 
-    public void deleteReservation(Long id) {
+    public void cancelReservation(Long id) {
 
         ReservationEntity reservationEntity = reservationRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Not found reservation by id" + id));
